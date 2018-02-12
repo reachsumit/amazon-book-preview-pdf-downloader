@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Amazon Book Preview PDF Downloader",
+  "version": "0.1",
+  "short_name": "Download books preview from Amazon as PDF file!",
+  "description": "TODO",
+  
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "html/popup.html",
+	 "default_title": "Amazon Book Preview PDF Downloader"
+  },
+  
+  "icons": { "16": "images/icon16.png",
+           "48": "images/icon48.png",
+          "128": "images/icon128.png" },
+  
+  "content_scripts": [
+  {
+    "matches": [
+		"https://www.amazon.com/*"
+    ],
+    "js": ["scripts/jquery-3.3.1.min.js","scripts/content_amazon.js"]
+  }
+],
+  "permissions": [
+    "tabs","downloads","*://*.cloudfront.net/*"
+   ],
+  
+  "background": {
+    "scripts": ["scripts/jspdf.js","scripts/events.js"]
+  }
+}
